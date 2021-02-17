@@ -49,7 +49,6 @@ class PhrasesController < ApplicationController
   #     @phrase = Phrase.find(params[:id])
   #   end
 
-    # Only allow a trusted parameter "white list" through.
     def phrase_params
       params.require(:phrase).permit(:english_phrase, :foreign_phrase, :language_id)
     end
