@@ -1,5 +1,6 @@
 class LanguagesController < ApplicationController
-  # before_action :set_language, only: [:show, :update, :destroy]
+
+  # skip_before_action :verify_authenticity_token
 
   # GET /languages
   def index

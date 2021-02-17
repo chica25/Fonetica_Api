@@ -1,6 +1,8 @@
 class PhrasesController < ApplicationController
   # before_action :set_phrase, only: [:show, :update, :destroy]
 
+  # skip_before_action :verify_authenticity_token
+
   # GET /phrases
   def index
     @phrases = Phrase.where(language_id: params[:language_id])
@@ -15,14 +17,17 @@ class PhrasesController < ApplicationController
 
   # POST /phrases
   def create
-    @phrase = Phrase.new(phrase_params)
+    # @phrase = Phrase.new(phrase_params)
+     @phrase = language.phrases.new(phrase_params)
 
     if @phrase.save
+      # render json: @phrase
       render json: @phrase, status: :created, location: @phrase
     else
-      render json: @phrase.errors, status: :unprocessable_entity
+      render json: @phrase   
     end
   end
+ 
 
   # # PATCH/PUT /phrases/1
   # def update
@@ -38,7 +43,7 @@ class PhrasesController < ApplicationController
   #   @phrase.destroy
   # end
 
-  # private
+  private
   #   # Use callbacks to share common setup or constraints between actions.
   #   def set_phrase
   #     @phrase = Phrase.find(params[:id])
