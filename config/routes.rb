@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :phrases
-  resources :languages
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :languages, only: [:index] do
+    resources :phrases, only: [:index]
+  end
+    resources :phrases
 end

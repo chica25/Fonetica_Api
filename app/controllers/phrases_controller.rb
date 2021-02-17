@@ -5,7 +5,7 @@ class PhrasesController < ApplicationController
   def index
     @phrases = Phrase.where(language_id: params[:language_id])
 
-    render json: @phrases
+    render json: @phrases, except: [:created_at, :updated_at]
   end
 
   # GET /phrases/1
