@@ -1,17 +1,17 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase, only: [:show, :update, :destroy]
+  # before_action :set_phrase, only: [:show, :update, :destroy]
 
   # GET /phrases
   def index
-    @phrases = Phrase.all
+    @phrases = Phrase.where(language_id: params[:language_id])
 
     render json: @phrases
   end
 
   # GET /phrases/1
-  def show
-    render json: @phrase
-  end
+  # def show
+  #   render json: @phrase
+  # end
 
   # POST /phrases
   def create
@@ -24,25 +24,25 @@ class PhrasesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /phrases/1
-  def update
-    if @phrase.update(phrase_params)
-      render json: @phrase
-    else
-      render json: @phrase.errors, status: :unprocessable_entity
-    end
-  end
+  # # PATCH/PUT /phrases/1
+  # def update
+  #   if @phrase.update(phrase_params)
+  #     render json: @phrase
+  #   else
+  #     render json: @phrase.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  # DELETE /phrases/1
-  def destroy
-    @phrase.destroy
-  end
+  # # DELETE /phrases/1
+  # def destroy
+  #   @phrase.destroy
+  # end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_phrase
-      @phrase = Phrase.find(params[:id])
-    end
+  # private
+  #   # Use callbacks to share common setup or constraints between actions.
+  #   def set_phrase
+  #     @phrase = Phrase.find(params[:id])
+  #   end
 
     # Only allow a trusted parameter "white list" through.
     def phrase_params
