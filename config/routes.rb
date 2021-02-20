@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :languages, only: [:index] do
-    resources :phrases, only: [:index, :create]
+  resources :languages do
+    resources :phrases
   end
-  #   resources :phrases
+      resources :phrases do
+  end
 end
