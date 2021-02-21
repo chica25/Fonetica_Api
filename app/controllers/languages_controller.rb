@@ -3,9 +3,9 @@ class LanguagesController < ApplicationController
 
   # GET /languages
   def index
-    @languages = Language.all
+    languages = Language.all
 
-    render json: @languages, except: [:created_at, :updated_at]
+    render json: languages, except: [:created_at, :updated_at]
   end
 
 end
