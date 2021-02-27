@@ -1,4 +1,7 @@
-# README
+# 
+ Welcome to Fonetica App! 
+
+To start the app, run npm start or yarn start
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

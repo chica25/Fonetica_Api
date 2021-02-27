@@ -10,10 +10,9 @@ class PhrasesController < ApplicationController
 
   # POST /phrases
   def create
-    # binding.pry
    language = Language.find(params[:language_id])
    phrase = language.phrases.new(phrase_params)
-    if @phrase.save
+    if phrase.save
       render json: phrase
     end
   end
